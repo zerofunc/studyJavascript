@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>즉시실행함수</title>
+</head>
+
+<body>
+<script>
+    'use strict';
+    (function(){
+        var swap;
+        var dh, sh;
+
+        swap=function(a, b){
+            var temp;
+            temp=a.name;
+            a.name = b.name;
+            b.name = temp;
+        }
+
+        dh={
+            _key:'dh',
+            name:'디에이치',
+            power:10
+        };
+
+        sh={
+            _key:'sh',
+            name:'에스H',
+            stamina:11
+        };
+
+        //////////////////////////////////////////////////////////////
+        console.log('before...', dh, sh);
+        swap(dh,sh);
+        console.log('after !', dh, sh);
+    })();
+</script>
+</body>
+</html>
