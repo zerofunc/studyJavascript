@@ -8,13 +8,33 @@
 <body>
 <script>
     'use strict';
-    var obj=(function(){
+    var BotCreater=(function(){
+        var BotList;
+        var DEFAULT_NAME, TIME_INTERVAL;
+        var destroy;
 
+        BotList={}, DEFAULT_NAME='이름없는 봇', TIME_INTERVAL=1000;
 
+        destroy=function(name){
+            clearInterval(BotList[name]), console.log(name+'(이)가 중단되었습니다.');
+        };
 
         return {
+            info:'봇 크리에이터 입니다',
+            init:function(){
+                setInterval(function(){
+                    console.log('-------------------'+BotCreater.info+'------------------');
+                },TIME_INTERVAL);
+                return this;
+            },
+            create:function(name, saying){
+                if(name===undefined) name=DEFAULT_NAME;
 
-
+                BotList[name] = setInterval(function(){
+                    console.log(name+' : '+saying);
+                },TIME_INTERVAL)
+            },
+            destroy:destroy
         }
     })()
 </script>
