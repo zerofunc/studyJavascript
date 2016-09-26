@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>즉시실행함수</title>
+</head>
+
+<body>
+<script>
+    'use strict';
+    // Q. 로그가 출력될 떄 마다 i값이 증가하게 하려면?
+    var i, len;
+
+    len=5;
+    for(i=0 ; i<len ; i++){
+        (function(i) {
+            setTimeout(function(){
+                console.log(`지금 i값은 ${i}`);
+            },1000);
+        })(i)
+    }
+    
+</script>
+</body>
+</html>
