@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>즉시실행함수</title>
+</head>
+
+<body>
+<script>
+    'use strict';
+    // Q. 로그가 출력될 떄 마다 id값이 증가하게 하려면?
+    var test = (function(){
+        var id=0;
+        
+        return function(){console.log('현재 아이디는?', id++);}
+    })();
+
+
+    ////////////////////////////////////////
+    test();
+    test();
+    test();
+    test();
+    
+</script>
+</body>
+</html>

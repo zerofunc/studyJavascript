@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>즉시실행함수</title>
+</head>
+
+<body>
+<script>
+    'use strict';
+    // Q. obj.core 를 밖에서 변경하지 못하도록 하려면?
+    var obj = (function(){
+        var core, sum;
+        core = function(){
+            var arg, i, len;
+            var t;
+            arg = arguments, len= arg.length, t=0;
+            for(i=0 ; i<len ; i++){
+                t+= arg[i];
+            }
+            return t;
+        };
+        sum = function(a,b){
+            return obj.core(a,b)
+        };
+        
+        return {
+            sum : sum
+        }
+    })();
+    
+    console.log(obj);
+    
+</script>
+</body>
+</html>
